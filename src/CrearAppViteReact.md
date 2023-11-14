@@ -1,8 +1,11 @@
 # Crear app con Vite + React
 
+1. Crear un proyecto nuevo con el siguiente comando:
+
 `npm create vite@latest nombre_proyecto`
 
-Selecionar un framework: Use teclas de direccion. Enter para enviar.
+2. Selecionar un framework: Use teclas de direccion. Enter para enviar.
+
 - Vanilla
 - Vue
 - React
@@ -15,7 +18,9 @@ Selecionar un framework: Use teclas de direccion. Enter para enviar.
 
 > Seleccionar React
 
-Seleccionar una variante: >>Use teclas de direccion. Enter para enviar.
+
+3. Seleccionar una variante: >>Use teclas de direccion. Enter para enviar.
+
 - TypeScript
 - TypeScript + SWC
 - JavaScript
@@ -24,25 +29,43 @@ Seleccionar una variante: >>Use teclas de direccion. Enter para enviar.
 > Seleccionar JavaScript + SWC
 
 
-Acceder a la carpeta del proyecto creado
+4. Acceder a la carpeta del proyecto creado.
 
 `cd nombre_proyecto`
 
-Ya dentro de la carpeta del proyecto ejecutar
+5. Ya dentro de la carpeta del proyecto ejecutar:
 
 `npm install`
 
-para instalar todas las dependencias necesarias para el proyecto
+Estec comando instalara todas las dependencias necesarias para el proyecto
 
-Al terminar de instalar las dependencias ejecutar el servidor de desarrollo
+6. Al terminar de instalar las dependencias ejecutar el servidor de desarrollo.
 
 `npm run dev`
 
-Si en el servidor de desarrollo no aparece la direccion de red para probar tu aplicacion en el movil
+7. Si en el servidor de desarrollo no aparece la direccion de red para probar tu aplicacion en el movil. Añadir al archivo de configuracion llamado _vite.config.js_ el siguiente objeto:
 
-Añadir al archivo de configuracion llamado vite.config.js el siguiente objeto
 ```
 server:{
 host: true
 }
+```
+
+El archivo vite.config.js quedaría así:
+
+
+```
+//vite.config.js
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base:'/guia/',
+  server:{
+    host: true,
+    }
+})
 ```
