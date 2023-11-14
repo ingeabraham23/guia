@@ -2,19 +2,19 @@
 
 1. Crear un proyecto nuevo con el siguiente comando:
 
-`npm create vite@latest nombre_proyecto`
+    - `npm create vite@latest nombre_proyecto`
 
 2. Selecionar un framework: Use teclas de direccion. Enter para enviar.
 
-- Vanilla
-- Vue
-- React
-- Preact
-- Lit
-- Svelte
-- Solid
-- Qwik
-- Others
+    - Vanilla
+    - Vue
+    - React
+    - Preact
+    - Lit
+    - Svelte
+    - Solid
+    - Qwik
+    - Others
 
 > Seleccionar React
 
@@ -37,7 +37,7 @@
 
 `npm install`
 
-Estec comando instalara todas las dependencias necesarias para el proyecto
+Este comando instalara todas las dependencias necesarias para el proyecto.
 
 6. Al terminar de instalar las dependencias ejecutar el servidor de desarrollo.
 
@@ -51,7 +51,7 @@ host: true
 }
 ```
 
-El archivo vite.config.js quedaría así:
+El archivo _vite.config.js_ quedaría así:
 
 
 ```
