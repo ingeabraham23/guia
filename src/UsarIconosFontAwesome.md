@@ -26,10 +26,10 @@
 6. Implementar el Icono.
     En este caso se implementa el Icono _faFileDownload_ dentro de un boton usando el componente _FontAwesomeIcon_.
 
-```
-<button onClick={capturarTabla}             className="boton-capturar">
-    Descargar 
-    <FontAwesomeIcon icon={faFileDownload}>
-    </FontAwesomeIcon>
-</button>
-```
+    ```
+    <button onClick={capturarTabla] className="boton-capturar">
+        Descargar 
+        <FontAwesomeIcon icon={faFileDownload}>
+        </FontAwesomeIcon>
+    </button>
+    ```
