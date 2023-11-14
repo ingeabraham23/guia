@@ -15,19 +15,21 @@
 
     `npm install --save @fortawesome/react-fontawesome@latest`
 
-4. Importar _FontAwesomeIcon_.
+4. Importar el componente _FontAwesomeIcon_.
 
     `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";`
 
-5. Importar el Icono _faFileDownload_.
+5. Importar el Icono, en este caso se importa el Icono _faFileDownload_ que se implementa en el paso 6.
 
     `import {faFileDownload} from "@fortawesome/free-solid-svg-icons";`
 
 6. Implementar el Icono.
-    En este caso el Icono se implementa dentro de un boton usando el componente _FontAwesomeIcon_.
+    En este caso se implementa el Icono _faFileDownload_ dentro de un boton usando el componente _FontAwesomeIcon_.
 
 ```
-<button onClick={capturarTabla} className="boton-capturar">
-        Descargar <FontAwesomeIcon icon={faFileDownload}></FontAwesomeIcon>
-      </button>
+<button onClick={capturarTabla}             className="boton-capturar">
+    Descargar 
+    <FontAwesomeIcon icon={faFileDownload}>
+    </FontAwesomeIcon>
+</button>
 ```
