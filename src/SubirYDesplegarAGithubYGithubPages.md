@@ -1,6 +1,6 @@
 # Subir App React a Github Pages + Github Pages
 
-Teniendo ya tu App creada
+Teniendo ya tu App creada.
 
 Crear un nuevo repositorio en github agregando el nombre deseado, las demas opciones dejarlas como estan y dar click en Create Repository.
 
@@ -35,11 +35,11 @@ export default defineConfig({
 })
 ```
 
-Inicializar git con el comando
+Inicializar git con el comando.
 
 `git init`
 
-Checar el estado de git con el comando
+Checar el estado de git con el comando.
 
 `git status`
 
@@ -55,11 +55,11 @@ Añadir todos los archivos sin seguimiento.
 
 `git add .`
 
-Crear nuesto primer commit
+Crear nuesto primer commit.
 
 `git commit -m "primer commit"`
 
-Crear la rama local main
+Crear la rama local main.
 
 `git branch -M main`
 
@@ -67,7 +67,7 @@ Añadir el origen remoto del repositorio, este origen lo muestra despues de habe
 
 `git remote add origin https://github.com/ingeabraham23/guia.git`
 
-Si desear ver las ramas remotas de tu proyecto ejecutar
+Si desear ver las ramas remotas de tu proyecto ejecutar.
 
 `git remote -v`
 
@@ -78,20 +78,18 @@ origin  https://github.com/ingeabraham23/guia.git (fetch)
 origin  https://github.com/ingeabraham23/guia.git (push)
 ```
 
-Subir todos los archivos añadidos al seguimiento
+Subir todos los archivos añadidos al seguimiento.
 
 `git push -u origin main`
 
-Hasta aqui tus archivos ya han sido subidos a Github
+Hasta aqui tus archivos ya han sido subidos a Github.
 
 
 # Subir a github Pages
 
-Instalar el paquete _gh-pages_
+Instalar el paquete _gh-pages_.
 
 `npm install gh-pages --save-dev`
-
-
 
 Agregar el siguiente script en el archivo _package.json_.
 
@@ -105,7 +103,7 @@ Desplegar con el siguiente comando:
 
 `npm run deploy`
 
-Al terminar te mostrara que ya ha sido publicada tu aplicacion
+Al terminar te mostrara que ya ha sido publicada tu aplicacion.
 
 >Published
 
