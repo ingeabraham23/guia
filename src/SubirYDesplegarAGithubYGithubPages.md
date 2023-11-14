@@ -2,7 +2,7 @@
 
 Teniendo ya tu App creada
 
-Crear un nuevo repositorio en github agregando el nombre deseado, las demas opciones dejarlas como estan y dar click en Create Repository
+Crear un nuevo repositorio en github agregando el nombre deseado, las demas opciones dejarlas como estan y dar click en Create Repository.
 
 Quedate en la pagina que te muestra ya que te servira como guia.
 
@@ -73,8 +73,10 @@ Si desear ver las ramas remotas de tu proyecto ejecutar
 
 Te mostrara la ramas remotas en este ejmplo muestra 2 que es la misma pero una es para cargar archivos es decir subirlos (push) y otra para descargar archivos (fetch).
 
-`origin  https://github.com/ingeabraham23/guia.git (fetch)`
-`origin  https://github.com/ingeabraham23/guia.git (push)`
+```
+origin  https://github.com/ingeabraham23/guia.git (fetch)
+origin  https://github.com/ingeabraham23/guia.git (push)
+```
 
 Subir todos los archivos añadidos al seguimiento
 
@@ -85,26 +87,28 @@ Hasta aqui tus archivos ya han sido subidos a Github
 
 # Subir a github Pages
 
+Instalar el paquete _gh-pages_
+
 `npm install gh-pages --save-dev`
 
 
 
-Agregar el siguiente script en el archivo "package.json"
+Agregar el siguiente script en el archivo _package.json_.
 
 `"deploy":"gh-pages -d dist"`
 
-Construir nuestra aplicacion para desplegar
+Construir nuestra aplicacion para desplegar con el siguiente comando:
 
 `npm run build`
 
-Desplegar
+Desplegar con el siguiente comando:
 
 `npm run deploy`
 
 Al terminar te mostrara que ya ha sido publicada tu aplicacion
 
-Published
+>Published
 
-Ahora ve a tu repositorio y selecciona "Settings" en el menu de arriba
+Ahora ve a tu repositorio y selecciona _Settings_ en el menu de arriba.
 
-Selecciona "Pages" en el menu lateral izquierdo y te mostrara todas las opciones para tu pagina incluyendo la direccion de acceso.
+Selecciona _Pages_ en el menu lateral izquierdo y te mostrara todas las opciones para tu pagina incluyendo la direccion de acceso.
