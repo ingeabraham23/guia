@@ -186,3 +186,99 @@ input:not([type="submit"]) {
 
 Estas son solo algunas de las pseudo-clases más comunes en CSS. Puedes combinar varias pseudo-clases para hacer selecciones más específicas y complejas. Las pseudo-clases son poderosas herramientas que te permiten aplicar estilos de manera dinámica según el estado o la posición de los elementos en la página.
 
+# Selectores combinados
+
+En CSS, los selectores combinados te permiten apuntar a elementos específicos en función de su relación con otros elementos. Estos selectores se utilizan para seleccionar un elemento específico que está anidado o relacionado de alguna manera con otro elemento. Aquí tienes algunos ejemplos comunes de selectores combinados:
+
+- _Descendencia ( )_: Selecciona un elemento que es descendiente directo de otro elemento.
+
+```
+div p {
+  color: blue;
+}
+```
+
+Esto seleccionará todos los elementos <p> que son descendientes directos de un elemento <div>.
+
+- _Hijo (>)_: Selecciona un elemento que es un hijo directo de otro elemento.
+
+```
+ul > li {
+  list-style-type: square;
+}
+```
+Esto seleccionará todos los elementos **li** que son hijos directos de un elemento **ul**.
+
+- _Adyacente (+)_: Selecciona un elemento que es adyacente directo a otro elemento.
+
+```
+h2 + p {
+  font-style: italic;
+}
+```
+Esto seleccionará todos los elementos **p** que son adyacentes directos a un elemento **h2**.
+
+- _General (~)_: Selecciona todos los elementos que son hermanos de otro elemento, es decir, comparten el mismo elemento padre y están después en el árbol de documentos.
+
+```
+h2 ~ p {
+  color: green;
+}
+```
+Esto seleccionará todos los elementos **p** que son hermanos del elemento **h2** y están después de él en el árbol de documentos.
+
+Estos selectores combinados proporcionan flexibilidad para aplicar estilos a elementos específicos en función de su relación con otros elementos en el documento HTML. Es importante entender cómo funcionan estos selectores para escribir reglas de estilo más específicas y eficientes.
+
+# Unidades.
+
+Las unidades se utilizan para especificar longitudes y tamaños de diversos elementos. Hay varias unidades disponibles en CSS, y se dividen en dos categorías principales: unidades absolutas y unidades relativas.
+
+- _Unidades Absolutas_:
+
+  - **cm** (centímetros): Unidad de longitud basada en el centímetro del sistema métrico.
+  - **mm** (milímetros): Unidad de longitud basada en el milímetro del sistema métrico.
+  - **in** (pulgadas): Unidad de longitud basada en la pulgada.
+  - **px** (píxeles): Unidad de longitud basada en píxeles en la pantalla. Es una unidad absoluta, ya que no cambia con respecto a otros elementos de la página.
+
+Ejemplo:
+
+```
+div {
+  width: 200px;
+  height: 3in;
+}
+```
+
+
+- _Unidades Relativas_:
+
+  - **em**: Relativo al tamaño de fuente del elemento.
+  - **rem**: Relativo al tamaño de fuente del elemento raíz (es decir, el tamaño de fuente especificado en el elemento html).
+  - **%** (porcentaje): Relativo al tamaño del contenedor del elemento.
+
+Ejemplo:
+
+```
+p {
+  font-size: 1.2em;
+  margin-bottom: 10%;
+}
+```
+
+- _Unidades de Vista Portátil_:
+
+  - **vw** (ancho de la ventana): El 1% del ancho de la ventana.
+  - **vh** (altura de la ventana): El 1% de la altura de la ventana.
+  - **vmin**: El 1% del menor valor entre la altura y el ancho de la ventana.
+  - **vmax**: El 1% del mayor valor entre la altura y el ancho de la ventana.
+
+Ejemplo:
+
+```
+header {
+  width: 50vw;
+  height: 20vmin;
+}
+```
+Estas son solo algunas de las unidades comunes en CSS. La elección de la unidad depende del contexto y de cómo quieras que los elementos se comporten en relación con su entorno. Las unidades relativas suelen ser más flexibles y facilitan el diseño receptivo (responsive design) porque se ajustan automáticamente a cambios en el tamaño de la fuente o del contenedor.
+
