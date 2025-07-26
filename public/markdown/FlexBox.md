@@ -17,7 +17,7 @@ Algunas propiedades asociadas a display: flex; incluyen:
 }
 ```
 
-![flex-direction](assets/flex-direction.png)
+![flex-direction](../../src/assets/flex-direction.png)
 
 - _justify-content_: Define cómo se distribuirán los elementos a lo largo del eje principal del contenedor. Puedes utilizar valores como flex-start (alineación al inicio), flex-end (alineación al final), center (al centro), space-between (distribución uniforme con espacio entre elementos), space-around (distribución uniforme con espacio alrededor de los elementos), etc.
 
@@ -27,7 +27,7 @@ Algunas propiedades asociadas a display: flex; incluyen:
   justify-content: space-between; /* También puede ser flex-start, flex-end, center, space-around, space-evenly, etc. */
 }
 ```
-![justify-content](assets/justify-content.png)
+![justify-content](../../src/assets/justify-content.png)
 
 - _align-items_: Esta propiedad define cómo se alinearán los elementos a lo largo del eje transversal del contenedor. Puedes usar valores como stretch (se estiran para llenar el contenedor), flex-start (alineación al inicio), flex-end (alineación al final), center (al centro), baseline (alineación por la línea de base).
 
@@ -38,7 +38,7 @@ Algunas propiedades asociadas a display: flex; incluyen:
 }
 ```
 
-![align-items](assets/align-items.png)
+![align-items](../../src/assets/align-items.png)
 
 - _align-self_: Permite a un elemento individual anular la propiedad align-items para ese elemento en particular.
 
@@ -57,9 +57,9 @@ Algunas propiedades asociadas a display: flex; incluyen:
 }
 ```
 
-![flex-wrap nowrap](assets/flexwrap-nowrap.png)
-![flex-wrap wrap](assets/flexwrap-wrap.png)
-![flex-wrap wrap-reverse](assets/flexwrap-wrap-reverse.png)
+![flex-wrap nowrap](../../src/assets/flexwrap-nowrap.png)
+![flex-wrap wrap](../../src/assets/flexwrap-wrap.png)
+![flex-wrap wrap-reverse](../../src/assets/flexwrap-wrap-reverse.png)
 
 Estos son solo algunos ejemplos de las propiedades que puedes usar con display: flex;. El modelo de diseño flexbox ofrece una flexibilidad significativa para la creación de diseños y la alineación de elementos en una interfaz de usuario.
 

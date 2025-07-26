@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import { Link } from 'react-router-dom';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        CAmbio realizazdo por Abraham solo como prueba
-      </p>
-    </>
-  )
+    <div className="contenedor">
+      <h1>Guías disponibles</h1>
+      <ul>
+        <li><Link to="/guia1">Base De Datos Dexie IndexedDB</Link></li>
+        <li><Link to="/guia2">Crear App Vite React</Link></li>
+        <li><Link to="/guia3">Crear PWA En React</Link></li>
+        <li><Link to="/guia4">Estilos CSS</Link></li>
+        <li><Link to="/guia5">FlexBox</Link></li>
+        <li><Link to="/guia6">ModeloDeCAjaCSS</Link></li>
+        <li><Link to="/guia7">Notificaciones</Link></li>
+        <li><Link to="/guia8">ScreenshotConJavaScript</Link></li>
+        <li><Link to="/guia9">SubirYDesplegarAGithubYGithubPages</Link></li>
+        <li><Link to="/guia10">UsarIconosFontAwesome</Link></li>
+        <li><Link to="/guia11">UsarRutas+Navbar</Link></li>
+        <li><Link to="/guia12">UsoDelPortaPapelesEnReact</Link></li>
+      </ul>
+    </div>
+  );
 }
 
-export default App
+export default App;
