@@ -5,10 +5,10 @@
 `npm install -D @vite-pwa/assets-generator`
 
 1. Descargar el icono svg de la pagina https://www.svgrepo.com/
-2. En este caso el archivo se llama *"calendario.svg"*
-3. Guarda el icono svg en la carpeta *"public"*
+2. En este caso el archivo se llama _"calendario.svg"_
+3. Guarda el icono svg en la carpeta _"public"_
 
-**Crear el archivo *pwa-assets.config.js* en la carpeta raíz del proyecto**
+**Crear el archivo _pwa-assets.config.js_ en la carpeta raíz del proyecto**
 
 Debería de quedar algo así:
 
@@ -23,7 +23,7 @@ export default defineConfig({
 })
 ```
 
-4. Añadir el siguiente script al *"package.json"*
+4. Añadir el siguiente script al _"package.json"_
 
 ```
 {
@@ -37,8 +37,10 @@ export default defineConfig({
 
 Se crearan los iconos necesarios en la carpeta "public"
 
+5. Editar "vite.config.js" agregando el objeto _manifest_ y dentro todas las propiedades para la **PWA**, debería de quedar algo así:
 
-5. Editar "vite.config.js" agregando el objeto *manifest* y dentro todas las propiedades para la **PWA**, debería de quedar algo así:
+> [CAUTION]
+> Asegurate de que scope sea igual a base y a start url
 
 ```
 import { defineConfig } from "vite";
@@ -66,7 +68,7 @@ export default defineConfig({
         dir: "ltr",
         display_override: ["standalone", "fullscreen"],
         display: "standalone",
-        scope: "/",
+        scope: "/horarios/",
         icons: [
           {
             src: "pwa-64x64.png",
@@ -105,6 +107,7 @@ export default defineConfig({
   ],
 });
 ```
+
 ### Descargar PWA
 
 Dependiendo del navegador y dispositivo recibirás una notificación que te indique cómo descargar la app desde el celular. Si estás en PC podrás hacerlo a través de un icono junto a la barra de direcciones.
@@ -134,7 +137,6 @@ useEffect(() => {
 **Botón de instalación de PWA**
 
 Ya que guardamos el evento en el objeto de window, podemos acceder a él y sus propiedades desde un botón con la siguiente función como evento de click.
-
 
 ```
 async function downloadApp() {
