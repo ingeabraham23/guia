@@ -1,4 +1,5 @@
 // src/main.jsx
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -21,6 +22,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/guia10" element={<VisorMarkdown archivo="/markdown/UsarIconosFontAwesome.md" />} />
       <Route path="/guia11" element={<VisorMarkdown archivo="/markdown/UsarRutas+Navbar.md" />} />
       <Route path="/guia12" element={<VisorMarkdown archivo="/markdown/UsoDelPortaPapelesEnReact.md" />} />
+      <Route path="/guia13" element={<VisorMarkdown archivo="/markdown/Extensiones para VS Code.md" />} />
+      <Route path="/guia14" element={<VisorMarkdown archivo="/markdown/Configuracion VS Code.md" />} />
     </Routes>
   </BrowserRouter>
 );

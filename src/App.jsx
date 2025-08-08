@@ -19,6 +19,8 @@ function App() {
         <li><Link to="/guia10">UsarIconosFontAwesome</Link></li>
         <li><Link to="/guia11">UsarRutas+Navbar</Link></li>
         <li><Link to="/guia12">UsoDelPortaPapelesEnReact</Link></li>
+        <li><Link to="/guia13">ExtensionesparaVSCode</Link></li>
+        <li><Link to="/guia14">ConfiguracionVSCode</Link></li>
       </ul>
     </div>
   );

@@ -1,6 +1,7 @@
 # Estilos CSS en React.
 
 ## Definicion.
+
 ```
 selector {
   propiedad: valor; /*declaracion*/
@@ -14,8 +15,8 @@ link{
   color: blue;
 }
 ```
-Se le aplicara el color _azul_ a todas las etiquetas **link**.
 
+Se le aplicara el color _azul_ a todas las etiquetas **link**.
 
 ## Usando Clases.
 
@@ -29,9 +30,7 @@ Se le aplicara el color _#0099FF_ a todos los elementos que se les asigne la cla
 
 Este es un ejemplo para aplicar la clase.
 
-`
-<button className className="boton-calcelar" >Cancelar</button>
-`
+`<button className className="boton-calcelar" >Cancelar</button>`
 
 ## Usando Id.
 
@@ -40,6 +39,7 @@ Este es un ejemplo para aplicar la clase.
   color: blue;
 }
 ```
+
 ```
 <p id="parrafo">Esto es un parrafo<p>
 ```
@@ -47,13 +47,11 @@ Este es un ejemplo para aplicar la clase.
 Se le aplicara el color azul al parrafo con el id parrafo.
 No es recomendable abusar de los **id** para estilizar.
 
-
 Estas 3 formas se recomienda que se definan en un archivo llamado de la misma forma y en la misma carpeta.
 
 Por ejemplo, si voy a definir las clases para mi componente _AcercaDe.jsx_ que se encuentra en la carpeta components, dentro de esa misma **carpeta** voy a crear un archivo llamado _AcercaDe.css_.
 
 Y lo importare de esta manera:
-
 
 `import "./AcercaDe.css";`
 
@@ -89,7 +87,6 @@ Algunas propiedades tienen un comportamiento de herencia condicional. Por ejempl
 
 Puedes forzar la herencia de una propiedad específica utilizando el valor _inherit_. Esto obligará al elemento hijo a heredar el valor de esa propiedad del elemento padre.
 
-
 ```
 .hijo {
   color: inherit; /* hereda el color del elemento padre */
@@ -117,7 +114,6 @@ _unset_ restablecerá una propiedad al valor inicial si es una propiedad heredad
 ```
 
 # Pseudo-clases
-
 
 En CSS, las pseudo-clases son selectores que seleccionan elementos en función de su estado o posición en relación con el árbol de documentos o el usuario. Se utilizan para aplicar estilos a elementos en situaciones específicas. Aquí hay algunas pseudo-clases comunes:
 
@@ -168,6 +164,7 @@ li:nth-child(2n) {
   background-color: #f0f0f0;
 }
 ```
+
 - _:nth-of-type(n)_: Similar a :nth-child(n), pero selecciona solo los hijos de un tipo específico de elemento.
 
 ```
@@ -207,6 +204,7 @@ ul > li {
   list-style-type: square;
 }
 ```
+
 Esto seleccionará todos los elementos **li** que son hijos directos de un elemento **ul**.
 
 - _Adyacente (+)_: Selecciona un elemento que es adyacente directo a otro elemento.
@@ -216,6 +214,7 @@ h2 + p {
   font-style: italic;
 }
 ```
+
 Esto seleccionará todos los elementos **p** que son adyacentes directos a un elemento **h2**.
 
 - _General (~)_: Selecciona todos los elementos que son hermanos de otro elemento, es decir, comparten el mismo elemento padre y están después en el árbol de documentos.
@@ -225,6 +224,7 @@ h2 ~ p {
   color: green;
 }
 ```
+
 Esto seleccionará todos los elementos **p** que son hermanos del elemento **h2** y están después de él en el árbol de documentos.
 
 Estos selectores combinados proporcionan flexibilidad para aplicar estilos a elementos específicos en función de su relación con otros elementos en el documento HTML. Es importante entender cómo funcionan estos selectores para escribir reglas de estilo más específicas y eficientes.
@@ -248,7 +248,6 @@ div {
   height: 3in;
 }
 ```
-
 
 - _Unidades Relativas_:
 
@@ -280,5 +279,5 @@ header {
   height: 20vmin;
 }
 ```
-Estas son solo algunas de las unidades comunes en CSS. La elección de la unidad depende del contexto y de cómo quieras que los elementos se comporten en relación con su entorno. Las unidades relativas suelen ser más flexibles y facilitan el diseño receptivo (responsive design) porque se ajustan automáticamente a cambios en el tamaño de la fuente o del contenedor.
 
+Estas son solo algunas de las unidades comunes en CSS. La elección de la unidad depende del contexto y de cómo quieras que los elementos se comporten en relación con su entorno. Las unidades relativas suelen ser más flexibles y facilitan el diseño receptivo (responsive design) porque se ajustan automáticamente a cambios en el tamaño de la fuente o del contenedor.

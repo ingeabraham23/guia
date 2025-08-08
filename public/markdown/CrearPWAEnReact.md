@@ -39,8 +39,7 @@ Se crearan los iconos necesarios en la carpeta "public"
 
 5. Editar "vite.config.js" agregando el objeto _manifest_ y dentro todas las propiedades para la **PWA**, debería de quedar algo así:
 
-> [CAUTION]
-> Asegurate de que scope sea igual a base y a start url
+> ⚠ Asegurate de que scope sea igual a base y a start url
 
 ```
 import { defineConfig } from "vite";
