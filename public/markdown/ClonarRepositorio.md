@@ -6,6 +6,10 @@ _Esta guía es para que bajes un repositorio a tu PC (uno que no tengas localame
 
 `https://github.com/tu-usuario/mi-proyecto.git`
 
+**Ahora en la terminal desplazate a la carpeta donde quieres que se descargue el repositorio, por ejemplo:**
+
+`cd c:`
+
 **Ahora en la terminal escribe:**
 
 `git clone https://github.com/tu-usuario/mi-proyecto.git`
@@ -22,7 +26,27 @@ _Esta guía es para que bajes un repositorio a tu PC (uno que no tengas localame
 
 `npm run dev`
 
-**(Opcional) Ejecuta el proyecto en desarrollo**
+**Verifica si esta activado git en el repositorio.**
+
+`git status`
+
+**Debe aparecerte:**
+
+>On branch main
+
+**Y tambien en la terminal bash:**
+>Aparere en corchetes la rama (main)
+
+---
+**VERIFICAR GH-PAGES**
+
+Verificar en el *package*.json si en las dependencias de desarrollo se encuentra *gh-pages* y si existe el script *deploy*.
+
+**Si no existen deberas instalar gh-pages y crear el script**
+
+`npm install gh-pages --save-dev`
+
+`"deploy":"gh-pages -d dist"`
 
 ---
 
@@ -44,7 +68,7 @@ _Esta guía es para que bajes un repositorio a tu PC (uno que no tengas localame
 
 1. Sube tus cambios a GitHub
 
-   `git push`
+   `git push -u origin main`
 
 > Si es la primera vez que haces push, puede pedirte iniciar sesión o autenticación con token personal. Si ya está configurado, subirá directamente a la rama actual (main o master normalmente).
 
@@ -73,6 +97,10 @@ _Esta guía es para que bajes un repositorio a tu PC (uno que no tengas localame
 1. Haz deploy a GitHub Pages
 
    `npm run deploy`
+
+1. Debera aparecerte:
+
+   >Published
 
 1. Verifica que funciona
 
