@@ -39,53 +39,69 @@ Se crearan los iconos necesarios en la carpeta "public"
 
 5. Editar "vite.config.js" agregando el objeto _manifest_ y dentro todas las propiedades para la **PWA**, debería de quedar algo así:
 
-> ⚠ Asegurate de que scope sea igual a base y a start url
+> ⚠ Asegurate de que modificar base por la base de tu proyecto
 
 ```
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { VitePWA } from "vite-plugin-pwa";
 
-// https://vitejs.dev/config/
+const base = "/horarios/";
+
 export default defineConfig({
+  base,
+
   server: {
     host: true,
   },
-  base: "/horarios/",
+
   plugins: [
     react(),
+
     VitePWA({
       registerType: "autoUpdate",
+
       devOptions: {
         enabled: true,
       },
+
       manifest: {
-        background_color: "#ffffff",
-        categories: ["transporte", "trabajo"],
+        id: base,
+        name: "PWA Horarios Urbanos Rojos",
+        short_name: "PWA Horarios",
         description:
-          "Esta es una PWA para Controlar los horarios del transporte publico",
+          "Aplicación para controlar los horarios del transporte público.",
+
+        lang: "es-MX",
         dir: "ltr",
-        display_override: ["standalone", "fullscreen"],
+
+        start_url: base,
+        scope: base,
+
         display: "standalone",
-        scope: "/horarios/",
+        display_override: ["standalone", "fullscreen"],
+        orientation: "portrait",
+
+        background_color: "#ffffff",
+        theme_color: "#317EFB",
+
+        categories: ["transportation", "utilities"],
+
         icons: [
           {
             src: "pwa-64x64.png",
             sizes: "64x64",
             type: "image/png",
-            purpose: "any",
           },
           {
             src: "pwa-192x192.png",
             sizes: "192x192",
             type: "image/png",
-            purpose: "any",
           },
           {
             src: "pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
-            purpose: "any",
           },
           {
             src: "maskable-icon-512x512.png",
@@ -94,79 +110,149 @@ export default defineConfig({
             purpose: "maskable",
           },
         ],
-        lang: "es-MX",
-        name: "PWA Horarios urbanos rojos",
-        orientation: "portrait",
-        prefer_related_application: false,
-        short_name: "PWA Horarios",
-        start_url: "/horarios/",
-        theme_color: "#317EFB",
       },
     }),
   ],
 });
 ```
 
-### Descargar PWA
+### Crear el componente reutilizable InstalarApp.jsx
 
-Dependiendo del navegador y dispositivo recibirás una notificación que te indique cómo descargar la app desde el celular. Si estás en PC podrás hacerlo a través de un icono junto a la barra de direcciones.
-
-Si deseas tener un botón claro y directo para descargar la aplicación puedes guiarte del siguiente código.
-
-**Escuchar evento de instalación**
-
-Añadimos un evento a la ventana que nos indica que la app está lista para instalarse. Guardamos esto en un estado (true/false), así como guardamos también el evento en el objeto de ventana para acceder a él más adelante.
+Este componente se encarga de detectar si la app ya esta instalada y en caso de que no esté instalada mostrará un botón de instalación.
 
 ```
-const [isReadyForInstall, setIsReadyForInstall] = React.useState(false);
+import { useEffect, useState } from "react";
+import "./InstalarApp.css";
 
-useEffect(() => {
-  window.addEventListener("beforeinstallprompt", (event) => {
-    // Evita que el mini-infobar aparezca en el móvil.
-    event.preventDefault();
-    console.log("👍", "beforeinstallprompt", event);
-    // Guarde el evento para que pueda activarse más tarde.
-    window.deferredPrompt = event;
-    // Elimine la clase 'oculta' del contenedor del botón de instalación.
-    setIsReadyForInstall(true);
-  });
-}, []);
-```
+export default function InstalarApp() {
+  const [eventoInstalacion, setEventoInstalacion] = useState(null);
+  const [instalada, setInstalada] = useState(false);
 
-**Botón de instalación de PWA**
+  useEffect(() => {
+    // Detectar si ya está instalada
+    const comprobarInstalacion = () => {
+      const esStandalone =
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true;
 
-Ya que guardamos el evento en el objeto de window, podemos acceder a él y sus propiedades desde un botón con la siguiente función como evento de click.
+      setInstalada(esStandalone);
+    };
 
-```
-async function downloadApp() {
-  console.log("👍", "butInstall-clicked");
-  const promptEvent = window.deferredPrompt;
-  if (!promptEvent) {
-    // El mensaje diferido no está disponible.
-     console.log("Ups, no se guardó ningún evento de aviso en window");
-    return;
+    comprobarInstalacion();
+
+    // Detectar cuándo el navegador permite instalar
+    const manejarInstalacion = (event) => {
+      event.preventDefault();
+      setEventoInstalacion(event);
+    };
+
+    const manejarInstalada = () => {
+      setInstalada(true);
+      setEventoInstalacion(null);
+    };
+
+    window.addEventListener(
+      "beforeinstallprompt",
+      manejarInstalacion
+    );
+
+    window.addEventListener(
+      "appinstalled",
+      manejarInstalada
+    );
+
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        manejarInstalacion
+      );
+
+      window.removeEventListener(
+        "appinstalled",
+        manejarInstalada
+      );
+    };
+  }, []);
+
+  async function instalarApp() {
+    if (!eventoInstalacion) return;
+
+    await eventoInstalacion.prompt();
+
+    const resultado = await eventoInstalacion.userChoice;
+
+    if (resultado.outcome === "accepted") {
+      setInstalada(true);
+    }
+
+    setEventoInstalacion(null);
   }
-  // Muestra el mensaje de instalación.
-  promptEvent.prompt();
-  // Registra el resultado
-  const result = await promptEvent.userChoice;
-  console.log("👍", "userChoice", result);
-  // Restablezca la variable de solicitud diferida, ya que
-  //Prompt() solo se puede llamar una vez.
-  window.deferredPrompt = null;
-  // Oculta el botón de instalación.
-  setIsReadyForInstall(false);
+
+  if (instalada || !eventoInstalacion) {
+    return null;
+  }
+
+  return (
+    <button
+      className="button-app"
+      onClick={instalarApp}
+    >
+      Instalar aplicación
+    </button>
+  );
+}
+
+```
+
+**InstalarApp.css**
+
+Creas la hoja de estilos InstalarApp.css
+
+```
+.button-app {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 16px auto;
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #317efb;
+  color: #fff;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.button-app:active {
+  transform: scale(0.98);
 }
 ```
 
-Renderizamos el boton condicional
+Después lo utilizas donde quieras:
 
 ```
-{isReadyForInstall && (
-        <button className="button-app" onClick={downloadApp}>Instalar App <FontAwesomeIcon icon={faFileDownload} /> </button>
-      )}
+import InstalarApp from "./components/InstalarApp";
+
+function App() {
+  return (
+    <>
+      <InstalarApp />
+      {/* Resto de tu aplicación */}
+    </>
+  );
+}
+
+export default App;
 ```
 
 ### Desplegar
 
 `npm run build`
+
+`npm run deploy`
